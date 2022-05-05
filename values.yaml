@@ -1,0 +1,14 @@
+image:
+  repo: recordsansible/ara-api
+  tag: latest
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: false
+  annotations: {}
+  tls: false
+  tlsSecret: ara-tls
+  hosts:
+    - ara.example.com

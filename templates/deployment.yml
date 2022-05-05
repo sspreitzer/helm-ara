@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ include "ara.name" . | quote }}
+  labels: {{ include "ara.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "ara.name" . | quote }}
+  template:
+    metadata:
+      labels: {{ include "ara.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: ara-api
+          image: "{{ .Values.image.repo }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 8000
+            - containerPort: 3000

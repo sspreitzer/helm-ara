@@ -1,0 +1,32 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "ara.name" . }}
+  labels: {{ include "ara.labels" . | nindent 4 }}
+  {{- if .Values.ingress.annotations }}
+  annotations: {{ toYaml .Values.ingress.annotations | nindent 4 }}
+  {{- end }}
+spec:
+{{- if .Values.ingress.tls }}
+  tls:
+    - hosts:
+      {{- range .Values.ingress.hosts }}
+      - {{ . | quote }}
+      {{- end }}
+      secretName: {{ .Values.ingress.tlsSecret | quote }}
+{{- end }}
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "ara.name" $ }}
+                port:
+                  number: 8000
+  {{- end }}
+{{- end -}}
