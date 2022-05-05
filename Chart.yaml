@@ -1,0 +1,19 @@
+apiVersion: v2
+name: ara
+version: '0.0.0'
+description: ARA Records Ansible
+keywords:
+  - python
+  - django
+  - ansible
+  - ara
+home: https://git.spreitzer.ch/helm/ara
+sources:
+  - https://git.spreitzer.ch/helm/ara.git
+  - https://github.com/ansible-community/ara.git
+maintainers:
+  - name: Sascha Spreitzer
+    email: sascha@spreitzer.ch
+    url: https://spreitzer.ch
+icon: https://ara.recordsansible.org/static/favicon.ico
+appVersion: 'latest'

@@ -1,0 +1,8 @@
+defaults:
+  image: alpine/helm
+
+helm:
+  script:
+    - CHART_VERSION="$(helm show chart . | grep '^version:' | awk '{print $2;}')"
+    - helm dependency update .
+    - helm package .
