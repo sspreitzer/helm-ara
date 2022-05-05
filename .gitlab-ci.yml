@@ -3,6 +3,7 @@ default:
 
 helm:
   script:
+    - apk --no-cache add curl && rm -rf /var/cache/apk/*
     - CHART_VERSION="$(helm show chart . | grep '^version:' | awk '{print $2;}')"
     - helm dependency update .
     - helm package .
