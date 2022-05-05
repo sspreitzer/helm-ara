@@ -7,4 +7,4 @@ helm:
     - CHART_VERSION="$(helm show chart . | grep '^version:' | awk '{print $2;}')"
     - helm dependency update .
     - helm package .
-    - 'curl --fail -u "${HARBOR_REPO_USER}:${HARBOR_REPO_TOKEN}" -X POST -H "Content-Type: multipart/form-data" -F "chart=ara-${CHART_VERSION}.tgz;type=application/x-compressed-tar" ${HARBOR_REPO_URL}'
+    - 'curl --fail -u "${HARBOR_REPO_USER}:${HARBOR_REPO_TOKEN}" -X POST -H "Content-Type: multipart/form-data" -F "chart=@ara-${CHART_VERSION}.tgz;type=application/x-compressed-tar" ${HARBOR_REPO_URL}'
