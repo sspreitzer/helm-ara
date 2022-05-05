@@ -8,9 +8,11 @@ spec:
   selector:
     app: {{ include "ara.name" . }}
   ports:
-    - protocol: TCP
+    - name: TCP-8000
+      protocol: TCP
       port: 8000
       targetPort: 8000
-    - protocol: TCP
+    - name: TCP-3000
+      protocol: TCP
       port: 3000
       targetPort: 3000
