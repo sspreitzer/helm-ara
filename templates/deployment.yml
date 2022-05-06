@@ -7,7 +7,9 @@ spec:
   replicas: {{ .Values.replicas }}
   strategy:
     type: {{ .Values.deploymentStrategy.type | quote }}
+    {{- if eq .Values.deploymentStrategy.type "RollingUpdate" }}
     rollingUpdate: {{ toYaml .Values.deploymentStrategy.rollingUpdate | nindent 6 }}
+    {{- end }}
   selector:
     matchLabels:
       app: {{ include "ara.name" . | quote }}
