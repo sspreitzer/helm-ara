@@ -1,5 +1,7 @@
 replicas: 1
 
+extraEnv: []
+
 deploymentStrategy:
   type: RollingUpdate
   rollingUpdate: {}
