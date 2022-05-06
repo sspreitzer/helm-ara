@@ -15,6 +15,9 @@ spec:
       containers:
         - name: ara-api
           image: "{{ .Values.image.repo }}:{{ .Values.image.tag }}"
+          env:
+            - name: ARA_ALLOWED_HOSTS
+              value: "['localhost', '::1', '127.0.0.1'{{ range .Values.ingress.hosts }}, '{{ . }}'{{ end }}]"
           ports:
             - containerPort: 8000
             - containerPort: 3000
