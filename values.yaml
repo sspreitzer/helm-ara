@@ -1,5 +1,9 @@
 replicas: 1
 
+deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate: {}
+
 image:
   repo: recordsansible/ara-api
   tag: latest

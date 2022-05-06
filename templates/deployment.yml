@@ -5,6 +5,9 @@ metadata:
   labels: {{ include "ara.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
+  strategy:
+    type: {{ .Values.deploymentStrategy.type | quote }}
+    rollingUpdate: {{ toYaml .Values.deploymentStrategy.rollingUpdate . | nindent 6 }}
   selector:
     matchLabels:
       app: {{ include "ara.name" . | quote }}
