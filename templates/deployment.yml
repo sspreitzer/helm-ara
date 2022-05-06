@@ -30,7 +30,7 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /opt/ara
-          {{- end -}}
+          {{- end }}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
@@ -42,4 +42,4 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "ara.name" . }}
-      {{- end -}}
+      {{- end }}
