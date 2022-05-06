@@ -1,3 +1,5 @@
+replicas: 1
+
 image:
   repo: recordsansible/ara-api
   tag: latest
@@ -12,3 +14,10 @@ ingress:
   tlsSecret: ara-tls
   hosts:
     - ara.example.com
+
+persistence:
+  enabled: false
+  accessModes:
+    - ReadWriteOnce
+  size: 8Gi
+  storageClass: ''

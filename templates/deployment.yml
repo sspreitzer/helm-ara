@@ -4,7 +4,7 @@ metadata:
   name: {{ include "ara.name" . | quote }}
   labels: {{ include "ara.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       app: {{ include "ara.name" . | quote }}
@@ -21,3 +21,14 @@ spec:
           ports:
             - containerPort: 8000
             - containerPort: 3000
+          {{- if .Values.persistence.enabled }}
+          volumeMounts:
+            - name: data
+              mountPath: /opt/ara
+          {{- end -}}
+      {{- if .Values.persistence.enabled }}
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "ara.name" . }}
+      {{- end -}}
