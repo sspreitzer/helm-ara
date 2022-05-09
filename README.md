@@ -7,8 +7,8 @@ Overview of [ARA Records Ansible](https://ara.recordsansible.org).
 ## TL;DR
 
 ```shell
-$ helm repo add spreitzer https://registry.spreitzer.ch/chartrepo/helm
-$ helm install my-release spreitzer/ara
+helm repo add spreitzer https://registry.spreitzer.ch/chartrepo/helm
+helm install my-release spreitzer/ara
 ```
 
 ## Introduction
