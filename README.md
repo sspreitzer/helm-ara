@@ -1,6 +1,6 @@
 # ARA Records Ansible Helm Chart
 
-ARA is python and django based visualization for Ansible Playbook runs. An Ansible callback plugin records the playbook results to an ARA instance via http(s).
+ARA is a Python and Django based visualization for Ansible Playbook runs. An Ansible callback plugin records the playbook results to an ARA instance via http(s).
 
 Overview of [ARA Records Ansible](https://ara.recordsansible.org).
 
