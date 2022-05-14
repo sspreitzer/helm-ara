@@ -40,11 +40,51 @@ tbd.
 | `image.tag`                        | Image tag                    | `"latest"`                 |
 | `service.type`                     | Type of kubernetes service   | `"ClusterIP"`              |
 
+Example
+
+```yaml
+replicas: 1
+deploymentStrategy:
+  type: Recreate
+extraEnv:
+  - name: ARA_EXTERNAL_AUTH
+    value: 'True'
+  - name: ARA_READ_LOGIN_REQUIRED
+    value: 'False'
+  - name: ARA_WRITE_LOGIN_REQUIRED
+    value: 'False'
+```
+
 ### Ingress Parameters
 tbd.
 
+Example
+
+```yaml
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-realm: "ARA Records Ansible"
+    nginx.ingress.kubernetes.io/auth-secret: ara-htpasswd
+  enabled: true
+  tls: true
+  hosts:
+    - ara.example.com
+```
+
 ### Persistence Parameters
 tbd.
+
+Example
+
+```yaml
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  storageClass: default
+```
 
 ## Configuration and Installation Details
 tbd.
