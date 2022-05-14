@@ -40,9 +40,12 @@ spec:
         runAsGroup: 1000
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
-      {{- if .Values.persistence.enabled }}
       volumes:
+      {{- if .Values.persistence.enabled }}
         - name: data
           persistentVolumeClaim:
             claimName: {{ include "ara.name" . }}
+      {{- else -}}
+        - name: data
+          emptyDir: {}
       {{- end }}
