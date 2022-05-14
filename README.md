@@ -1,6 +1,8 @@
 # ARA Records Ansible Helm Chart
 
-ARA is a Python and Django based visualization for Ansible Playbook runs. An Ansible callback plugin records the playbook results to an ARA instance via http(s).
+![ARA full logo](https://ara.recordsansible.org/static/ara-full-logo.png)
+
+ARA is a Python and Django based visualization for Ansible Playbook runs. An Ansible callback plugin records the playbook results to an ARA instance via http(s). This is a publicly hosted Open Source Helm Chart of ARA.
 
 Overview of [ARA Records Ansible](https://ara.recordsansible.org).
 
@@ -13,6 +15,14 @@ helm install my-release spreitzer/ara
 
 ## Introduction
 tbd.
+
+## Contributing
+
+Please contribute here:
+ * [Issues](https://git.spreitzer.ch/helm/ara/-/issues)
+ * [Merge Requests](https://git.spreitzer.ch/helm/ara/-/merge_requests)
+
+With your contribution you agree that your work is published under the MIT license of this project. See [LICENSE](/LICENSE).
 
 ## Prerequisites
 tbd.
@@ -47,4 +57,8 @@ tbd.
 
 ## License
 
-See [LICENSE](/LICENSE).
+Free and Open Source, MIT license, See [LICENSE](/LICENSE).
+
+## Authors
+
+ * [Sascha Spreitzer](https://spreitzer.ch)
