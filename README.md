@@ -30,7 +30,10 @@ Please contribute here:
 With your contribution you agree that your work is published under the MIT license of this project. See [LICENSE](/LICENSE).
 
 ## Prerequisites
-tbd.
+
+ * Kubernetes
+ * Helm
+ * Storage in Kubernetes
 
 ## Parameters
 ### Common Parameters
@@ -105,6 +108,10 @@ tbd.
 ## License
 
 Free and Open Source, MIT license, See [LICENSE](/LICENSE).
+
+## Credits
+
+ * The [bitnami/charts/mariadb/README.md](https://github.com/bitnami/charts/blob/master/bitnami/mariadb/README.md) documentation served as inspiration for this documentation
 
 ## Authors
 
