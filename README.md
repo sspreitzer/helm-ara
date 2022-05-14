@@ -14,7 +14,12 @@ helm install my-release spreitzer/ara
 ```
 
 ## Introduction
-tbd.
+
+This Helm Chart deploys an ARA api instance. ARA api is the server component of the ARA software. It will serve Ansible playbook run reports and hosts in a user friendly web interface, as well as the api which the client part uses to submit reports.
+
+The ARA api is neither secured or open for submitting reports. You will have to configure the ARA api for authentication. Please see the [ARA documentation](https://ara.readthedocs.io/en/latest/api-configuration.html). The ARA api may be secured by disabling authentication in ARA api and providing authentication over HTTPS via [ingress annotations](#ingress-parameters).
+
+ARA api supports a multitude of database backends configurable via the aforementioned environment variables. This Helm Chart may in future support high availability and incorporate an easy configuration. However at the moment you will have to configure high availability and scalability via replicas, deployment strategy, persistence and the deployment environment variables by yourself.
 
 ## Contributing
 
