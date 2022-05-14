@@ -71,7 +71,14 @@ extraEnv:
 ```
 
 ### Ingress Parameters
-tbd.
+
+| Name                  | Description                         | Value                 |
+| --------------------- | ----------------------------------- | --------------------- |
+| `ingress.enabled`     | Switch to enable/disable an ingress | `false`               |
+| `ingress.annotations` | Ingress annotations map             | `{}`                  |
+| `ingress.tls`         | Switch to enable/disable TLS/SSL    | `false`               |
+| `ingress.tlsSecret`   | Name of secret of tls certificate   | `"ara-tls"`           |
+| `ingress.hosts`       | List of FQDN for the ingress        | `["ara.example.com"]` |
 
 Example
 
