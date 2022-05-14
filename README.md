@@ -96,7 +96,13 @@ ingress:
 ```
 
 ### Persistence Parameters
-tbd.
+
+| Name                       | Description                          | Value               |
+| -------------------------- | ------------------------------------ | ------------------- |
+| `persistence.enabled`      | Switch to enable/disable persistence | `false`             |
+| `persistence.accessModes`  |  Volume access modes                 | `["ReadWriteOnce"]` |
+| `persistence.size`         | Size of volume                       | `"8Gi"`             |
+| `persistence.storageClass` | StorageClass of volume               | `""`                |
 
 Example
 
