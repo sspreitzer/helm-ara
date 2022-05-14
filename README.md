@@ -40,6 +40,8 @@ tbd.
 | `image.tag`                        | Image tag                    | `"latest"`                 |
 | `service.type`                     | Type of kubernetes service   | `"ClusterIP"`              |
 
+Please find ARA api environment variables and behavior documented [here](https://ara.readthedocs.io/en/latest/api-configuration.html).
+
 Example
 
 ```yaml
