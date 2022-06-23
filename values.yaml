@@ -1,6 +1,7 @@
 replicas: 1
 
-extraEnv: []
+extraEnv:
+  ARA_ALLOWED_HOSTS: "['localhost', '::1', '127.0.0.1', 'ara.example.com']"
 
 deploymentStrategy:
   type: RollingUpdate
