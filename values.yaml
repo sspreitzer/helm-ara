@@ -30,12 +30,14 @@ persistence:
 
 oauth2proxy:
   enabled: false
+  config:
+    clientID: xxx
+    clientSecret: xxx
+    cookieSecret: xxx
   extraArgs:
     upstream: http://ara-ara
     provider: keycloak-oidc
-    client-id: xxx
-    client-secret: xxx
-    redirect-url: https://myapp.com/oauth2/callback
+    redirect-url: https://ara-web.example.com/oauth2/callback
     oidc-issuer-url: https://<keycloak host>/realms/<your realm>
     # allowed-role: role1
     # allowed-role: role2
