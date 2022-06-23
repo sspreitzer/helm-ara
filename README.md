@@ -62,12 +62,10 @@ replicas: 1
 deploymentStrategy:
   type: Recreate
 extraEnv:
-  - name: ARA_EXTERNAL_AUTH
-    value: 'True'
-  - name: ARA_READ_LOGIN_REQUIRED
-    value: 'False'
-  - name: ARA_WRITE_LOGIN_REQUIRED
-    value: 'False'
+  ARA_ALLOWED_HOSTS: "['localhost', '::1', '127.0.0.1', 'ara.example.com', 'ara-web.example.com']"
+  ARA_EXTERNAL_AUTH: 'True'
+  ARA_READ_LOGIN_REQUIRED: 'False'
+  ARA_WRITE_LOGIN_REQUIRED: 'False'
 ```
 
 ### Ingress Parameters
@@ -112,6 +110,44 @@ persistence:
   accessModes:
     - ReadWriteOnce
   storageClass: default
+```
+
+### OAuth2 Proxy Parameters
+
+Refer to:
+ * https://oauth2-proxy.github.io/oauth2-proxy/docs/
+ * https://github.com/oauth2-proxy/manifests/tree/main/helm/oauth2-proxy
+ * https://github.com/oauth2-proxy/manifests/blob/main/helm/oauth2-proxy/values.yaml
+
+Example
+
+```yaml
+oauth2proxy:
+  enabled: true
+  redis:
+    enabled: true
+  sessionStorage:
+    type: redis
+  config:
+    clientID: xxx
+    clientSecret: xxx
+    cookieSecret: xxx
+  extraArgs:
+    upstream: http://ara-ara:8000
+    provider: keycloak-oidc
+    redirect-url: https://ara-web.example.com/oauth2/callback
+    oidc-issuer-url: https://<keycloak host>/auth/realms/<keycloak realm>
+    allowed-group: ara
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - ara-web.example.com
+    tls:
+      - secretName: oauth2-proxy-tls
+        hosts:
+        - ara-web.example.com
 ```
 
 ## Configuration and Installation Details
