@@ -27,3 +27,26 @@ persistence:
     - ReadWriteOnce
   size: 8Gi
   storageClass: ''
+
+oauth2_proxy:
+  enabled: false
+  extraArgs:
+    upstream: http://ara-ara
+    provider: keycloak-oidc
+    client-id: xxx
+    client-secret: xxx
+    redirect-url: https://myapp.com/oauth2/callback
+    oidc-issuer-url: https://<keycloak host>/realms/<your realm>
+    # allowed-role: role1
+    # allowed-role: role2
+    # allowed-group: group1
+    # allowed-group: group2
+  ingress:
+    enabled: false
+    annotations: {}
+    hosts:
+      - ara-web.example.com
+    tls:
+      - secretName: oauth2-proxy-tls
+        hosts:
+        - ara-web.example.com

@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ara
-version: '0.3.1'
+version: 0.4.0
 description: ARA Records Ansible
 keywords:
   - python
@@ -11,9 +11,15 @@ home: https://git.spreitzer.ch/helm/ara
 sources:
   - https://git.spreitzer.ch/helm/ara.git
   - https://github.com/ansible-community/ara.git
+dependencies:
+  - name: oauth2-proxy
+    alias: oauth2_proxy
+    version: 6.2.1
+    repository: https://oauth2-proxy.github.io/manifests
+    condition: oauth2_proxy.enabled
 maintainers:
   - name: Sascha Spreitzer
     email: sascha@spreitzer.ch
     url: https://spreitzer.ch
 icon: https://ara.recordsansible.org/static/favicon.ico
-appVersion: 'latest'
+appVersion: latest
